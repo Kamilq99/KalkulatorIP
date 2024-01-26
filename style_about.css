@@ -1,11 +1,21 @@
 body{
     background: #000 url(ip.jpg) no-repeat;
     background-size: cover;
+    width: 90%; /* Szerokość kontenera jako 90% szerokości okna przeglądarki */
+    max-width: 1200px; /* Maksymalna szerokość kontenera */
+    margin: 0 auto; /* Wycentrowanie kontenera */
+    padding: 20px; /* Dodanie wewnętrznych odstępów */
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 95%; /* Dla mniejszych ekranów zmniejszamy szerokość kontenera */
+    }
 }
 
 .box{
     background-color: rgba(255, 255, 255, 0.4);
-    width: 1930px;
+    width: 1200px;
     height: 70px;
 }
 
@@ -52,7 +62,7 @@ body{
     text-align: center;
     background-color:rgba(255, 255, 255, 0.9);
     color: rgb(78, 75, 233);
-    width: 1930px;
+    width: 1200px;
     height: 150px;
     display: flex;
     justify-content: center;
@@ -64,9 +74,40 @@ body{
     text-align: justify;
     background-color:rgba(255, 255, 255, 0.9);
     color: rgb(78, 75, 233);
-    width: 1930px;
+    width: 1200px;
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.stopka{
+    width: 1200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: blue;
+    margin: 1050px 0px 0px 0px;
+}
+.stopka ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+}
+.stopka ul li{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    height: 60px;
+    float: right;
+    padding: 5px 50px 50px 5px;
+    text-align: left;
+}
+
+.stopka ul li a{
+    text-decoration: none;
+    color: white;
 }

@@ -1,6 +1,16 @@
 body{
     background: #000 url(ip.jpg) no-repeat;
     background-size: cover;
+    width: 90%; /* Szerokość kontenera jako 90% szerokości okna przeglądarki */
+    max-width: 1200px; /* Maksymalna szerokość kontenera */
+    margin: 0 auto; /* Wycentrowanie kontenera */
+    padding: 20px; /* Dodanie wewnętrznych odstępów */
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Dla mniejszych ekranów zmniejszamy szerokość kontenera */
+    }
 }
 
 .box{
@@ -46,4 +56,33 @@ body{
     width: 150px;
     height: 70px;
     padding: 0px 5px 0px 0px;
+}
+
+.stopka{
+    width: 1200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: blue;
+    margin: 1050px 0px 0px 0px;
+}
+.stopka ul{
+
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+}
+.stopka ul li{
+    text-align: right;
+    height: 60px;
+    float: right;
+    padding: 5px 50px 50px 5px;
+    text-align: left;
+}
+
+.stopka ul li a{
+    text-decoration: none;
+    color: white;
 }
