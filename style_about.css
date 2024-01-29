@@ -13,51 +13,6 @@ body{
     }
 }
 
-.box{
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 1200px;
-    height: 70px;
-}
-
-.box .navbar{
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.box .navbar .elements{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.box .navbar .elements li{
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    height: 60px;
-    float: left;
-    padding: 5px 50px 50px 5px;
-    text-align: left;
-}
-
-.box .navbar .elements a:hover{
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.box .navbar .elements li a{
-    color: white;
-    text-decoration: none;
-}
-
-.logo{
-    float: left;
-    width: 150px;
-    height: 70px;
-    padding: 0px 5px 0px 0px;
-}
-
 .opis h1{
     text-align: center;
     background-color:rgba(255, 255, 255, 0.9);
@@ -79,35 +34,4 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.stopka{
-    width: 1200px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background-color: blue;
-    margin: 5px 0px 0px 0px;
-}
-.stopka ul{
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: normal;
-}
-.stopka ul li{
-    display: inline;
-    justify-content: center;
-    align-items: center;
-    text-align: right;
-    height: 60px;
-    float: right;
-    padding: 5px 50px 50px 5px;
-    text-align: left;
-}
-
-.stopka ul li a{
-    text-decoration: none;
-    color: white;
 }
