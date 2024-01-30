@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt</title>
     <link href="style_contact.css" rel="stylesheet">
+    <script src="contact.html" defer></script>
 </head>
 <body>
     <div id="nawigacja"></div>
+    <div>
+        <form id="contactForm">
+            <label for="imie">Podaj swoje imię:</label><br>
+            <input type="text" id="imie" name="imie" required><br>
+            <label for="email">Adres e-mail:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="wiadomosc">Wiadomość:</label><br>
+            <textarea id="wiadomosc" name="wiadomosc" rows="4" cols="50" required></textarea><br>
+            <input type="submit" value="Wyślij">
+        </form>
+    </div>
     <div id="stopka"></div>
     
     <script src="stopka&nawigacja.js"></script>
