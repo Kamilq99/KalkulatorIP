@@ -42,8 +42,33 @@ app.get('/ip.jpg', (req, res) => {
   res.sendFile(__dirname + '/ip.jpg');
 });
 
-app.get('/x/d.jpg', (req, res) => {
-  res.sendFile(__dirname + '/x/d.jpg');
+app.get('/d.jpg', (req, res) => {
+  res.sendFile(__dirname + '/d.jpg');
+});
+
+app.get('/about.html', (req,res) =>{
+  res.setHeader('Content-Type', 'text/html')
+  res.sendFile(__dirname + '/about.html');
+})
+
+app.get('/style_about.css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css'); 
+  res.sendFile(__dirname + '/style_about.css');
+});
+
+app.get('/contact.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html'); 
+  res.sendFile(__dirname + '/contact.html');
+});
+
+app.get('/style_contact.css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css'); 
+  res.sendFile(__dirname + '/style_contact.css');
+});
+
+app.get('/index.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html'); 
+  res.sendFile(__dirname + '/index.html');
 });
 
 const PORT = 3000;
