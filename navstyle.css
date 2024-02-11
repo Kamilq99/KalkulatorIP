@@ -1,15 +1,15 @@
 body{
     background-size: cover;
-    width: 90%; /* Szerokość kontenera jako 90% szerokości okna przeglądarki */
-    max-width: 1200px; /* Maksymalna szerokość kontenera */
+    width: 90%;
+    max-width: 1200px;
     max-height: 2000px;
-    margin: 0 auto; /* Wycentrowanie kontenera */
-    padding: 20px; /* Dodanie wewnętrznych odstępów */
+    margin: 0 auto;
+    padding: 20px;
 }
 
 @media (max-width: 768px) {
     .container {
-        width: 95%; /* Dla mniejszych ekranów zmniejszamy szerokość kontenera */
+        width: 95%;
     }
 }
 
@@ -52,8 +52,13 @@ body{
 }
 
 .logo{
+    font-family: 'Open Sans', sans-serif;
     float: left;
     width: 150px;
-    height: 70px;
-    padding: 0px 5px 0px 0px;
+    height: 100px;
+    padding: 0px 20px 0px 15px;
+}
+.logo b i a{
+    text-decoration: none;
+    color: azure;
 }

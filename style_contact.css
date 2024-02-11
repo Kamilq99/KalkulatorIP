@@ -12,3 +12,96 @@ body{
         width: 95%; /* Dla mniejszych ekranów zmniejszamy szerokość kontenera */
     }
 }
+
+.nav{
+    margin: 0;
+}
+
+.tittle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 1200px;
+    margin: 0;
+}
+
+.tittle h1{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+section{
+    background-color: aliceblue;
+    overflow: hidden;
+    height: 500px;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact{
+    background-color: grey;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.contact h1{
+    margin: 20px 0px 0px 20px;
+}
+
+.add{
+    background-color: black;
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+.add .inside h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20pt;
+    color: white;
+    margin: 20px 0px 0px 20px;
+}
+
+.add .inside p{
+    display: flex;
+    color: grey;
+    margin: 50px 0px 0px 100px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15pt;
+}
+.add .inside p .phone{
+    width: 25px;
+    height: 25px;
+}
+
+.add .inside p .mail{
+    width: 25px;
+    height: 25px;
+}
+
+.add .inside ul{
+    list-style-type: none;
+    margin: 170px 0px 50px 150px;
+}
+.add .inside ul li{
+    color: grey;
+    display: inline;
+    margin-right: 50px;
+}
+
+.add .inside ul li .fb{
+    width: 25px;
+    height: 25px;
+}
+
+.add .inside ul li .ig{
+    width: 25px;
+    height: 25px;
+}
+
+.add .inside ul li .tt{
+    width: 25px;
+    height: 25px;
+}

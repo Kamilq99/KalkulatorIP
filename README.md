@@ -1,3 +1,3 @@
 Z braku laku chciałem zacząć pisać jakieś strony z wykorzystaniem JavaScript, HTML oraz CSS. Są one w pełni amatorskie, lecz od czegoś trzeba zacząć i tak właśnie zaczynam swoją przygodę. Zrobiona przez ze mnie strona jest kalkulatorem IP, który można gdzieniegdzie spotkać już na Google. Nie jest to coś nowatorskiego, służy to jedynie zabawie i szlifowaniu umiejętności Frontednowych z mojej strony. Są tutaj prezentowane moje wstępnę umiejętności z posługiwania się HTML i CSS oraz praca z JavaScript, trochę tego na moim koncie GitHub brakowało, ale mam nadzieję, że coś przykuje uwagę osoób oglądających.
 
-Link do zdjęcia w tle: https://redro.pl/plakat-przelacznik-sieciowy-i-kable-sieciowe-ethernet-lacza-sie-z-systemem,151944701
+Link do zdjęcia w tle: https://pixabay.com/pl/photos/sie%C4%87-edp-wtyczka-przew%C3%B3d-krosowy-4393368/

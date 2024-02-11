@@ -20,23 +20,14 @@ body{
     justify-content: center;
     align-items: flex-end;
     background-color: blue;
-    margin: 1050px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
-.stopka ul{
 
-    list-style-type: none;
+.stopka{
     display: flex;
     justify-content: center;
-    align-items: normal;
+    align-items: center;
 }
-.stopka ul li{
-    text-align: right;
-    height: 60px;
-    float: right;
-    padding: 5px 50px 50px 5px;
-    text-align: left;
-}
-
 .stopka ul li a{
     text-decoration: none;
     color: white;
