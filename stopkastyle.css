@@ -12,23 +12,33 @@ body{
         width: 95%; /* Dla mniejszych ekranów zmniejszamy szerokość kontenera */
     }
 }
-
-.stopka{
-    width: 1200px;
-    height: 150px;
+.stopka {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-between; /* Umieszcza elementy na krańcach kontenera */
+    align-items: center; /* Wyrównuje elementy w pionie */
     background-color: blue;
-    margin: 0px 0px 0px 0px;
+    color: white;
+    padding: 20px;
 }
 
-.stopka{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.logo {
+    flex: 1;
 }
-.stopka ul li a{
-    text-decoration: none;
+
+.logo h1 b i a{
     color: white;
+    text-decoration: none; 
+}
+
+.links {
+    display: flex;
+    flex: 2; /* Dostosowuje szerokość kolumn linków */
+}
+
+.links > div {
+    margin-right: 20px; /* Dodaje odstęp między kolumnami */
+}
+
+.newsletter {
+    flex: 1; /* Dostosowuje szerokość kolumny newslettera */
 }
