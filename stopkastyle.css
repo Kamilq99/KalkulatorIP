@@ -48,6 +48,14 @@ ul li a{
     color: white;
 }
 
+.links .fstl h2{
+    margin-right: 70px;
+}
+
+.links .scdl h2{
+    margin-left: 50px;
+}
+
 .newsletter {
     flex: 1;
 }
