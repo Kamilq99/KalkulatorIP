@@ -9,13 +9,13 @@ body{
 
 @media (max-width: 500px) {
     .container {
-        width: 95%; /* Dla mniejszych ekranów zmniejszamy szerokość kontenera */
+        width: 95%;
     }
 }
 .stopka {
     display: flex;
-    justify-content: space-between; /* Umieszcza elementy na krańcach kontenera */
-    align-items: center; /* Wyrównuje elementy w pionie */
+    justify-content: space-between;
+    align-items: center; 
     background-color: blue;
     color: white;
     padding: 20px;
@@ -32,13 +32,22 @@ body{
 
 .links {
     display: flex;
-    flex: 2; /* Dostosowuje szerokość kolumn linków */
+    flex: 2;
 }
 
 .links > div {
-    margin-right: 20px; /* Dodaje odstęp między kolumnami */
+    margin-right: 20px; 
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
 }
 
 .newsletter {
-    flex: 1; /* Dostosowuje szerokość kolumny newslettera */
+    flex: 1;
 }
