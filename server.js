@@ -1,77 +1,42 @@
 const express = require('express');
+const path = require('path');
+
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Middleware to serve static files
+app.use(express.static(path.join(__dirname, 'main_page')));
+app.use(express.static(path.join(__dirname, 'nav')));
+app.use(express.static(path.join(__dirname, 'footer')));
+app.use(express.static(path.join(__dirname, 'about')));
+app.use(express.static(path.join(__dirname, 'contact')));
+app.use(express.static(path.join(__dirname, 'licence')));
+app.use(express.static(path.join(__dirname, 'images')));
 
+// Routes
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(path.join(__dirname, 'main_page', 'index.html'));
 });
 
-
-app.get('/style.css', (req, res) => {
-  res.setHeader('Content-Type', 'text/css');
-  res.sendFile(__dirname + '/style.css');
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'about', 'about.html'));
 });
 
-app.get('/stopka&nawigacja.js', (req, res) => {
-  res.setHeader('Content-Type', 'text/javascript');
-  res.sendFile(__dirname + '/stopka&nawigacja.js');
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'contact', 'contact.html'));
 });
 
-
-app.get('/nav.html', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.sendFile(__dirname + '/nav.html');
+app.get('/licence', (req, res) => {
+  res.sendFile(path.join(__dirname, 'licence', 'licence.html'));
 });
 
-app.get('/navstyle.css', (req, res) => {
-  res.setHeader('Content-Type', 'text/css'); 
-  res.sendFile(__dirname + '/navstyle.css');
+// Handle 404 for other routes
+app.use((req, res) => {
+  console.log(`Request URL: ${req.url}`);
+  res.status(404).send('Sorry, we cannot find that!');
 });
 
-app.get('/stopka.html', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.sendFile(__dirname + '/stopka.html');
-});
-
-app.get('/stopkastyle.css', (req, res) => {
-  res.setHeader('Content-Type', 'text/css'); 
-  res.sendFile(__dirname + '/stopkastyle.css');
-});
-
-app.get('/ip.jpg', (req, res) => {
-  res.sendFile(__dirname + '/ip.jpg');
-});
-
-app.get('/d.jpg', (req, res) => {
-  res.sendFile(__dirname + '/d.jpg');
-});
-
-app.get('/about.html', (req,res) =>{
-  res.setHeader('Content-Type', 'text/html')
-  res.sendFile(__dirname + '/about.html');
-})
-
-app.get('/style_about.css', (req, res) => {
-  res.setHeader('Content-Type', 'text/css'); 
-  res.sendFile(__dirname + '/style_about.css');
-});
-
-app.get('/contact.html', (req, res) => {
-  res.setHeader('Content-Type', 'text/html'); 
-  res.sendFile(__dirname + '/contact.html');
-});
-
-app.get('/style_contact.css', (req, res) => {
-  res.setHeader('Content-Type', 'text/css'); 
-  res.sendFile(__dirname + '/style_contact.css');
-});
-
-app.get('/index.html', (req, res) => {
-  res.setHeader('Content-Type', 'text/html'); 
-  res.sendFile(__dirname + '/index.html');
-});
-
-const PORT = 3000;
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

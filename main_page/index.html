@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Calculator</title>
+    <link rel="stylesheet" href="/main_page/style.css">
+    <link rel="stylesheet" href="/nav/nav_style.css">
+    <link rel="stylesheet" href="/footer/footer_style.css">
+    <script src="/main_page/ip_cal.js" defer></script>
+    <script src="/nav/nav.js" defer></script>
+    <script src="/footer/footer.js" defer></script>
+</head>
+<body>
+    <nav></nav>
+    <main>
+        <h1>IP Calculator</h1>
+        <form id="ipForm">
+            <label for="ipAddress">IP Address:</label>
+            <input type="text" id="ipAddress" name="ipAddress" placeholder="e.g. 192.168.1.1" required>
+            
+            <label for="subnetMask">Subnet Mask:</label>
+            <select id="subnetMask" name="subnetMask" required>
+                <!-- Dynamically populate these options in JavaScript -->
+            </select>
+            
+            <button type="submit">Calculate</button>
+        </form>
+        
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Decimal</th>
+                    <th>Binary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IP Address</td>
+                    <td id="ipDecimal"></td>
+                    <td id="ipBinary"></td>
+                </tr>
+                <tr>
+                    <td>Subnet Mask</td>
+                    <td id="maskDecimal"></td>
+                    <td id="maskBinary"></td>
+                </tr>
+                <tr>
+                    <td>Network Address</td>
+                    <td id="networkDecimal"></td>
+                    <td id="networkBinary"></td>
+                </tr>
+                <tr>
+                    <td>Broadcast Address</td>
+                    <td id="broadcastDecimal"></td>
+                    <td id="broadcastBinary"></td>
+                </tr>
+                <tr>
+                    <td>Min Host</td>
+                    <td id="hostMinDecimal"></td>
+                    <td id="hostMinBinary"></td>
+                </tr>
+                <tr>
+                    <td>Max Host</td>
+                    <td id="hostMaxDecimal"></td>
+                    <td id="hostMaxBinary"></td>
+                </tr>
+                <tr>
+                    <td>Hosts in Network</td>
+                    <td id="hostsCount"></td>
+                    <td id="hostsClass"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer></footer>
+</body>
+</html>

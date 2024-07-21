@@ -1,0 +1,37 @@
+/* Resetowanie marginesów i paddingów dla ciała dokumentu */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styl podstawowy stopki */
+footer {
+    background-color: #f8f9fa; /* Kolor tła stopki */
+    padding: 10px 0; /* Padding na górze i na dole */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    position: fixed; /* Ustalamy pozycję stopki */
+    bottom: 0; /* Dolna krawędź */
+    width: 100%; /* Szerokość na 100% */
+    border-top: 1px solid #dee2e6; /* Górna krawędź */
+    color: #212529; /* Kolor tekstu */
+    z-index: 1000; /* Ustawiamy z-index, aby być na wierzchu */
+}
+
+/* Styl kontenera w stopce */
+footer .container {
+    max-width: 1200px; /* Maksymalna szerokość kontenera */
+    margin: 0 auto; /* Wyśrodkowanie kontenera */
+}
+
+/* Usunięcie odstępów między stopką a tłem strony */
+body {
+    margin: 0; /* Usuwamy domyślny margines */
+    padding-bottom: 50px; /* Dodajemy padding na dole, aby uniknąć zakrywania treści przez stopkę */
+}
+
+/* Media queries dla mniejszych ekranów */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 0; /* Większy padding dla mniejszych ekranów */
+    }
+}

@@ -1,0 +1,91 @@
+/* Globalne style */
+body {
+    background-image: url('/images/ip.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Nawigacja */
+nav {
+    background-color: #007bff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+    border-radius: 4px;
+}
+
+/* Kontent */
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Białe tło z lekką przezroczystością */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 50px auto; /* Automatyczne marginesy dla centrowania */
+    /* Ustal marginesy dla oddzielenia od nawigacji i stopki */
+}
+
+/* Stopka */
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* Utrzymuje stopkę na dole */
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 15px;
+        margin: 50px auto; /* Dostosowanie marginesów na mniejszych ekranach */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        margin: 40px auto; /* Dostosowanie marginesów na bardzo małych ekranach */
+    }
+}

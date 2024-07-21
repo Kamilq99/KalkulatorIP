@@ -1,15 +1,14 @@
 {
-  "name": "backend",
+  "name": "ip-calculator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple IP address calculator",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
-  }
+    "express": "^4.17.1"
+  },
+  "author": "",
+  "license": "ISC"
 }

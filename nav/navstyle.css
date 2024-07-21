@@ -1,0 +1,40 @@
+/* Resetowanie podstawowych stylów dla lepszej spójności */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Stylizacja nawigacji */
+  nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li {
+    margin: 0;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    background-color: #575757;
+  }
+  
+  /* Zapewnia, że nawigacja nie jest przyklejona do góry */
+  body {
+    margin-top: 60px; /* Dostosuj w zależności od wysokości nawigacji */
+  }  
