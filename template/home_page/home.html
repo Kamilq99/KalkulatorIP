@@ -22,7 +22,7 @@
         <div class="container mx-auto text-center">
             <h1 class="text-3xl font-bold">IP Calculator</h1>
             <nav class="mt-4">
-                <a href="home.html" class="mx-4 text-lg hover:text-green-300">Home</a>
+                <a href="#home" class="mx-4 text-lg hover:text-green-300">Home</a>
                 <a href="#about" class="mx-4 text-lg hover:text-green-300">About Us</a>
                 <a href="#contact" class="mx-4 text-lg hover:text-green-300">Contact</a>
             </nav>
@@ -77,6 +77,10 @@
                     <option value="/32">255.255.255.255 /32</option>
                 </select>
             </div>
+
+            <button onclick="calculateNetworkDetails()" class="mt-4 px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-500">
+                Calculate
+            </button>
         </div>
 
         <!-- Results Table -->
@@ -89,49 +93,22 @@
                         <th class="px-4 py-2 border">Binary Notation</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="px-4 py-2 border">IP Address</td>
-                        <td class="px-4 py-2 border">195.150.24.4</td>
-                        <td class="px-4 py-2 border">11000011.10010110.00011000.00000100</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-2 border">Mask</td>
-                        <td class="px-4 py-2 border">255.255.255.0 = 24</td>
-                        <td class="px-4 py-2 border">11111111.11111111.11111111.00000000</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-2 border">Network Address</td>
-                        <td class="px-4 py-2 border">195.150.24.0/24</td>
-                        <td class="px-4 py-2 border">11000011.10010110.00011000.00000000</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-2 border">Broadcast</td>
-                        <td class="px-4 py-2 border">195.150.24.255</td>
-                        <td class="px-4 py-2 border">11000011.10010110.00011000.11111111</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-2 border">Host Min</td>
-                        <td class="px-4 py-2 border">195.150.24.1</td>
-                        <td class="px-4 py-2 border">11000011.10010110.00011000.00000001</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-2 border">Host Max</td>
-                        <td class="px-4 py-2 border">195.150.24.254</td>
-                        <td class="px-4 py-2 border">11000011.10010110.00011000.11111110</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-2 border">Hosts in Network</td>
-                        <td class="px-4 py-2 border">254</td>
-                        <td class="px-4 py-2 border">Class C</td>
-                    </tr>
+                <tbody id="resultsTable">
+                    <!-- Rows will be dynamically added here -->
                 </tbody>
-            </table>            
+            </table>
         </div>
 
-        <div class="mt-6 w-full max-w-sm mx-auto">
-            <label for="subnetCount" class="block text-lg font-medium mb-2">Number of Subnets:</label>
-            <input type="number" id="subnetCount" name="subnetCount" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-green-500">
+       <!-- Input for subnet count and calculate button -->
+        <div class="flex flex-col items-center mt-6">
+            <div class="w-full max-w-sm">
+                <label for="subnetCount" class="block text-lg font-medium mb-2">Number of Subnets:</label>
+                <input type="number" id="subnetCount" name="subnetCount" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-green-500">
+            </div>
+
+            <button onclick="calculateSubnets()" class="mt-4 px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-500">
+                Calculate Subnets
+            </button>
         </div>
 
         <!-- Subnet Table -->
@@ -143,7 +120,7 @@
                         <th class="px-4 py-2 border">Range</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="subnetResultsTable">
                     <!-- Dynamically generated subnet ranges -->
                 </tbody>
             </table>
@@ -156,6 +133,106 @@
             <p>&copy; 2023 IP Calculator. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function calculateNetworkDetails() {
+            const ip = document.getElementById("ipAddress").value;
+            const mask = document.getElementById("networkMask").value;
+
+            const ipParts = ip.split('.').map(part => parseInt(part, 10));
+            const maskValue = parseInt(mask.split('/')[1], 10);
+            const maskParts = (new Array(maskValue).fill(1).concat(new Array(32 - maskValue).fill(0)))
+                .join('')
+                .match(/.{1,8}/g)
+                .map(bin => parseInt(bin, 2));
+
+            const networkParts = ipParts.map((part, index) => part & maskParts[index]);
+            const broadcastParts = networkParts.map((part, index) => part | (~maskParts[index] & 255));
+            const hostMinParts = networkParts.slice();
+            hostMinParts[3] += 1;
+            const hostMaxParts = broadcastParts.slice();
+            hostMaxParts[3] -= 1;
+            const numHosts = Math.pow(2, 32 - maskValue) - 2;
+
+            const resultsTable = document.getElementById("resultsTable");
+            resultsTable.innerHTML = `
+                <tr>
+                    <td class="px-4 py-2 border">IP Address</td>
+                    <td class="px-4 py-2 border">${ip}</td>
+                    <td class="px-4 py-2 border">${ipParts.map(part => part.toString(2).padStart(8, '0')).join('.')}</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border">Mask</td>
+                    <td class="px-4 py-2 border">${maskParts.join('.')} = ${maskValue}</td>
+                    <td class="px-4 py-2 border">${maskParts.map(part => part.toString(2).padStart(8, '0')).join('.')}</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border">Network Address</td>
+                    <td class="px-4 py-2 border">${networkParts.join('.')} /${maskValue}</td>
+                    <td class="px-4 py-2 border">${networkParts.map(part => part.toString(2).padStart(8, '0')).join('.')}</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border">Broadcast</td>
+                    <td class="px-4 py-2 border">${broadcastParts.join('.')}</td>
+                    <td class="px-4 py-2 border">${broadcastParts.map(part => part.toString(2).padStart(8, '0')).join('.')}</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border">Host Min</td>
+                    <td class="px-4 py-2 border">${hostMinParts.join('.')}</td>
+                    <td class="px-4 py-2 border">${hostMinParts.map(part => part.toString(2).padStart(8, '0')).join('.')}</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border">Host Max</td>
+                    <td class="px-4 py-2 border">${hostMaxParts.join('.')}</td>
+                    <td class="px-4 py-2 border">${hostMaxParts.map(part => part.toString(2).padStart(8, '0')).join('.')}</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 border">Hosts in Network</td>
+                    <td class="px-4 py-2 border">${numHosts}</td>
+                    <td class="px-4 py-2 border">Class ${getClass(maskValue)}</td>
+                </tr>
+            `;
+        }
+
+        function calculateSubnets() {
+            const subnetCount = parseInt(document.getElementById("subnetCount").value, 10);
+            const mask = document.getElementById("networkMask").value;
+            const maskValue = parseInt(mask.split('/')[1], 10);
+
+            const ip = document.getElementById("ipAddress").value;
+            const ipParts = ip.split('.').map(part => parseInt(part, 10));
+
+            const newMaskValue = maskValue + Math.ceil(Math.log2(subnetCount));
+            if (newMaskValue > 32) {
+                alert("Error: Too many subnets for this network class or the number of subnets is incorrect.");
+                return;
+            }
+
+            const subnetSize = Math.pow(2, 32 - newMaskValue);
+            const resultsTable = document.getElementById("subnetResultsTable");
+            resultsTable.innerHTML = '';
+
+            for (let i = 0; i < subnetCount; i++) {
+                const subnetIpParts = ipParts.slice();
+                subnetIpParts[3] += i * subnetSize;
+                const subnetEndIpParts = subnetIpParts.slice();
+                subnetEndIpParts[3] += subnetSize - 1;
+
+                resultsTable.innerHTML += `
+                    <tr>
+                        <td class="px-4 py-2 border">Subnet ${i + 1}</td>
+                        <td class="px-4 py-2 border">${subnetIpParts.join('.')} - ${subnetEndIpParts.join('.')}</td>
+                    </tr>
+                `;
+            }
+        }
+
+        function getClass(maskValue) {
+            if (maskValue <= 8) return 'A';
+            if (maskValue <= 16) return 'B';
+            return 'C';
+        }
+    </script>
 
 </body>
 
