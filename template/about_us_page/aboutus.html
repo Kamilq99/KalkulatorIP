@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('ip.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>About Us</h1>
+
+<body class="text-gray-900 flex flex-col min-h-screen">
+
+    <!-- Header with Navigation -->
+    <header class="bg-green-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">About Us</h1>
+            <nav class="mt-4">
+                <a href="index.html" class="mx-4 text-lg hover:text-green-300">Home</a>
+                <a href="about.html" class="mx-4 text-lg hover:text-green-300">About Us</a>
+                <a href="contact.html" class="mx-4 text-lg hover:text-green-300">Contact</a>
+            </nav>
+        </div>
     </header>
-    <main>
+
+    <!-- Main Content -->
+    <main class="container mx-auto flex-grow px-4 py-8 bg-white bg-opacity-80 rounded-lg shadow-lg my-8">
         <section>
-            <h2>Welcome to Our Network Solutions</h2>
-            <p>Our website is dedicated to providing comprehensive information on computer networking, specifically focusing on IP address calculation with specific subnet masks and subnetting techniques. We aim to equip both beginners and experienced network professionals with the knowledge and tools necessary to understand and implement effective networking strategies.</p>
-            <p>This platform serves as a valuable resource for students, IT professionals, and anyone interested in enhancing their understanding of networking concepts. Whether you are looking to grasp the basics of IP addressing or delve into advanced subnetting techniques, our content is tailored to meet your needs.</p>
+            <h2 class="text-2xl font-semibold mb-6">Welcome to Our Network Solutions</h2>
+            <p class="mb-4">At Network Solutions, we are dedicated to delivering comprehensive and practical information on computer networking. Our primary focus is on IP address calculation, subnet masks, and subnetting techniques. Our goal is to provide valuable insights and tools that are beneficial for both beginners and seasoned IT professionals alike.</p>
+            <p class="mb-4">Our platform serves as a vital resource for students, IT specialists, and anyone interested in enhancing their knowledge of networking concepts. Whether you are seeking to understand the fundamentals of IP addressing or exploring advanced subnetting techniques, our content is designed to address your needs effectively.</p>
+            <p class="mb-4">We believe in empowering our users with the necessary knowledge to make informed decisions about network design and management. Our resources are crafted to simplify complex topics and offer practical guidance that can be applied in real-world scenarios.</p>
+            <p class="mb-4">With a commitment to excellence and a passion for technology, Network Solutions strives to be at the forefront of networking education. We continuously update our content to reflect the latest advancements in the field and to ensure that our users have access to accurate and relevant information.</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Network Solutions. All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white py-4 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Network Solutions. All rights reserved.</p>
+        </div>
     </footer>
+
 </body>
+
 </html>
